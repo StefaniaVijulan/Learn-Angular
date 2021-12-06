@@ -1,0 +1,18 @@
+<button 
+    class = "random"
+    [class]="isRed?'btn btn-danger':'btn btn-info'"
+    [ngClass]="isRed?'btn btn-danger':'btn btn-info'"
+    (click)="toggleIsRed()">
+Clcik</button>
+<!--Daca e rosu atunci deseneaza divul-->
+<div class="alert alert-danger" *ngIf="isRed">The button is red</div>
+<!--Daca nu e rosu atunci asunde divul-->
+<div class="alert alert-danger" [hidden]="!isRed">The button is red</div> 
+
+<button class="btn btn-info" (click)="AddStudent()"> Add</button>
+<ul>
+    <li *ngFor="let student of studenti; let i=index">
+    <app-student [nume]="student.nume" [ani]="student.ani" [index]="i" (stergeNume)="RemoveStudentName($event)"></app-student>
+    </li>
+
+</ul>
